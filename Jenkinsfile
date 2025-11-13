@@ -20,7 +20,7 @@ pipeline {
             steps {
                 // Authenticate using the specific Jenkins Credential ID
                 // Note: 'DOCKER_CREDENTIAL_ID' must be defined somewhere else (like an 'environment' block or parameter)
-                withDockerRegistry(credentialsId: 'DOCKER_CREDENTIAL_ID', url: 'https://registry.hub.docker.com') {
+                withDockerRegistry(credentialsId: 'secret_text1', url: 'https://registry.hub.docker.com') {
             
                     // Push the image using the exact tag from the build stage
                     sh "docker push shubham2209/my-web-app:${env.BUILD_NUMBER}"
