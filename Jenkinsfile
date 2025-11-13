@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                sh "docker build -t \${DOCKER_IMAGE} ."
+                sh sh "docker build -t shubham2209/my-web-app:${env.BUILD_NUMBER} ."
             }
         }
         
