@@ -13,7 +13,7 @@ pipeline {
         DOCKER_FULL_IMAGE = "${DOCKER_IMAGE_BASE}:${DOCKER_IMAGE_TAG}"
 
         // Credential ID for Docker Hub (This is the critical fix!)
-        DOCKER_CREDENTIAL_ID = 'secret_text1' 
+        DOCKER_CREDENTIAL_ID = 'secret_text2' 
     }
 
     stages {
@@ -26,7 +26,7 @@ pipeline {
 
         stage('Push Image to Registry') {
             steps {
-                // Now uses the correct credential ID: 'secret_text1'
+                // Now uses the correct credential ID: 'secret_text2'
                 withDockerRegistry(credentialsId: env.DOCKER_CREDENTIAL_ID, url: 'https://registry.hub.docker.com') {
                     // Push the image using the full tag
                     sh "docker push ${DOCKER_FULL_IMAGE}"
